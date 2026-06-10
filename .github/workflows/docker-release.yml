@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Extract Git SHA
+      - name: Get Commit SHA
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
@@ -36,7 +36,7 @@ jobs:
           docker push asawarinavle/student-management:${{ github.ref_name }}
           docker push asawarinavle/student-management:${{ steps.vars.outputs.sha_short }}
 
-      - name: Create GitHub Release
+      - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
