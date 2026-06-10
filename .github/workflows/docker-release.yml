@@ -33,8 +33,8 @@ jobs:
 
       - name: Push Docker Images
         run: |
-          docker push asawarinavle/student-management:${{ github.ref_name }}
-          docker push asawarinavle/student-management:${{ steps.vars.outputs.sha_short }}
+          docker push AsawariNavle/student-management:${{ github.ref_name }}
+          docker push asawariNavle/student-management:${{ steps.vars.outputs.sha_short }}
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
