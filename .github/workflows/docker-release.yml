@@ -25,8 +25,14 @@ jobs:
           docker build -t student-management:${{ github.ref_name }} .
           docker tag student-management:${{ github.ref_name }} student-management:${{ steps.vars.outputs.sha_short }}
 
-      - name: Show Docker Images
-        run: docker images
+      - name: Save Docker Image
+        run: docker save student-management:${{ github.ref_name }} -o student-management.tar
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-image
+          path: student-management.tar
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
