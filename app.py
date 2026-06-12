@@ -38,59 +38,38 @@ def home():
     <body style="font-family: Arial; margin:40px; text-align:center;">
 
         <h1>🎓 College Student Management System</h1>
-
         <h2>CI/CD DevOps Project</h2>
 
         <form method="POST">
 
-            <input type="text"
-                   name="name"
-                   placeholder="Enter Student Name"
-                   required>
-
+            <input type="text" name="name" placeholder="Enter Student Name" required>
             <br><br>
 
-            <input type="text"
-                   name="roll"
-                   placeholder="Enter Roll Number"
-                   required>
-
+            <input type="text" name="roll" placeholder="Enter Roll Number" required>
             <br><br>
 
-            <input type="text"
-                   name="department"
-                   placeholder="Enter Department"
-                   required>
-
+            <input type="text" name="department" placeholder="Enter Department" required>
             <br><br>
 
-            <button type="submit">
-                Add Student
-            </button>
-
+            <button type="submit">Add Student</button>
         </form>
 
         <br><br>
 
         <h2>Student List</h2>
 
-        <table border="1"
-               align="center"
-               cellpadding="10">
-
+        <table border="1" align="center" cellpadding="10">
             <tr>
                 <th>Name</th>
                 <th>Roll No</th>
                 <th>Department</th>
             </tr>
-
             {student_html}
-
         </table>
 
     </body>
     </html>
     """
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
